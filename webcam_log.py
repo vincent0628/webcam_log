@@ -23,8 +23,8 @@ def main():
     flag = True
     while(True):
       ret, frame = cap.read()
+      frame = cv2.flip(frame, -1) #縱向翻轉
       gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-      
       if flag == True:
           save_log(status)
           flag = False
