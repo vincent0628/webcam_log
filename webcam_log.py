@@ -34,7 +34,7 @@ def main():
       gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
          
       # The range for a pixel's value in grayscale is (0-255), 127 lies midway
-      if cv2.mean(gray)[0] < 10:
+      if round(cv2.mean(gray)[0]) < 10:
           if not status == 'dark':
               flag = True
           status = 'dark'
@@ -52,8 +52,8 @@ def main():
           cv2.putText(frame, t, (10, 280), 
                       cv2.FONT_HERSHEY_SCRIPT_SIMPLEX, 1, 
                       (0, 255, 255), 1, cv2.LINE_AA)
-      frame = cv2.resize(frame, (1280, 720))
-      cv2.putText(frame, time.strftime("%Y/%m/%d %H:%M:%S"), (900, 50), 
+      frame = cv2.resize(frame, (720, 480))
+      cv2.putText(frame, time.strftime("%Y/%m/%d %H:%M:%S"), (350, 50), 
                   cv2.FONT_HERSHEY_SCRIPT_SIMPLEX, 1, 
                   (255, 255, 255), 1, cv2.LINE_AA)
       cv2.imshow('frame', frame)
